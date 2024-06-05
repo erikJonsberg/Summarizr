@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import { copy, linkIcon, loader, tick } from "../assets";
-import { useLazyGetSummaryQuery } from "../services/article";
+import { copy, linkIcon, loader, tick } from '../assets';
+import { useLazyGetSummaryQuery } from '../services/article';
 
 const Summarizr = () => {
 	const [article, setArticle] = useState({
-		url: "",
-		summary: "",
+		url: '',
+		summary: '',
 	});
 	const [allArticles, setAllArticles] = useState<
 		{ url: string; summary: string }[]
 	>([]);
-	const [copied, setCopied] = useState("");
+	const [copied, setCopied] = useState('');
 
 	// RTK lazy query
 	const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
 	// Load data from localStorage on mount
 	useEffect(() => {
-		const articlesFromLocalStorage = localStorage.getItem("articles");
+		const articlesFromLocalStorage = localStorage.getItem('articles');
 		if (articlesFromLocalStorage) {
 			setAllArticles(JSON.parse(articlesFromLocalStorage));
 		}
@@ -41,7 +41,7 @@ const Summarizr = () => {
 			// update state and local storage
 			setArticle(newArticle);
 			setAllArticles(updatedAllArticles);
-			localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
+			localStorage.setItem('articles', JSON.stringify(updatedAllArticles));
 		}
 	};
 
@@ -49,11 +49,11 @@ const Summarizr = () => {
 	const handleCopy = (copyUrl: string) => {
 		setCopied(copyUrl);
 		navigator.clipboard.writeText(copyUrl);
-		setTimeout(() => setCopied(""), 3000);
+		setTimeout(() => setCopied(''), 3000);
 	};
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === "Enter") {
+		if (e.key === 'Enter') {
 			handleSubmit(e);
 		}
 	};
@@ -97,10 +97,13 @@ const Summarizr = () => {
 							onClick={() => setArticle(item)}
 							className='link_card'
 						>
-							<div className='copy_btn' onClick={() => handleCopy(item.url)}>
+							<div
+								className='copy_btn'
+								onClick={() => handleCopy(item.url)}
+							>
 								<img
 									src={copied === item.url ? tick : copy}
-									alt={copied === item.url ? "tick_icon" : "copy_icon"}
+									alt={copied === item.url ? 'tick_icon' : 'copy_icon'}
 									className='w-[40%] h-[40%] object-contain'
 								/>
 							</div>
@@ -115,13 +118,17 @@ const Summarizr = () => {
 			{/* Display Result */}
 			<div className='my-10 max-w-full flex justify-center items-center'>
 				{isFetching ? (
-					<img src={loader} alt='loader' className='w-20 h-20 object-contain' />
+					<img
+						src={loader}
+						alt='loader'
+						className='w-20 h-20 object-contain'
+					/>
 				) : error ? (
 					<p className='font-inter font-bold text-black text-center'>
 						Well, that wasn't supposed to happen...
 						<br />
 						<span className='font-satoshi font-normal text-gray-700'>
-							{"data" in error ? (error.data as { error: string }).error : ""}
+							{'data' in error ? (error.data as { error: string }).error : ''}
 						</span>
 					</p>
 				) : (
