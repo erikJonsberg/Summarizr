@@ -42,8 +42,3 @@ VITE_RAPID_API_ARTICLE_KEY = '<YOUR_KEY_GOES_HERE>';
 [Redux Toolkit documentation](https://redux-toolkit.js.org/introduction/getting-started)
 [RapidAPI documentation](https://docs.rapidapi.com/)
 
-## Update
-
-The API in this project is unstable, and I would not recommend using it. For some reason, it returns a 429 error -`too many requests`. The limit, set by the author, is 50 requests per day on the free tier. So, he either changed it, or there's a bug somewhere. Also, he hasn't updated it in a year and he has [another project](https://scrapeninja.net/) that seems to be his priority.
-
-Given the release of GPT-4o, I think OpenAI has come far enough that an API like this is unnecessary. This might be a good use case for [CrewAI](https://crewai.com/) as well.
