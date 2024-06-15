@@ -38,7 +38,7 @@ VITE_RAPID_API_ARTICLE_KEY = '<YOUR_KEY_GOES_HERE>';
 
 ## Resources
 
-[Vite documentation](https://vitejs.dev/guide/)
-[Redux Toolkit documentation](https://redux-toolkit.js.org/introduction/getting-started)
+[Vite documentation](https://vitejs.dev/guide/)<br/>
+[Redux Toolkit documentation](https://redux-toolkit.js.org/introduction/getting-started)<br/>
 [RapidAPI documentation](https://docs.rapidapi.com/)
 
