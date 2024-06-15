@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is an app that takes the URL of a blog post or article and sends back a summary of it. The user can specify the length and language of the summary and save summaries to local storage.
+This is an AI app that takes the URL of a blog post or article and sends back a summary of it. The user can specify the length and language of the summary and save it to local storage.
 
 This project was built with [Vite](https://vitejs.dev/) and uses [Redux Toolkit](https://redux-toolkit.js.org/) for state management. The API, [Article Extractor and Summarizer](https://rapidapi.com/restyler/api/article-extractor-and-summarizer), comes from [RapidAPI](https://rapidapi.com/hub).
 
